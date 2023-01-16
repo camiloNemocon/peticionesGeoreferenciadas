@@ -1,6 +1,15 @@
 import React from 'react'
 import { useState } from 'react' 
 import { UserOutlined, SolutionOutlined} from '@ant-design/icons'
+import Mapa from './Mapa'
+
+let mapaDato
+
+const infoMapa = (info) => {
+    //console.log(info)
+    mapaDato = info
+}
+
 
 const Formulario = ({adicionar}) => {
 
@@ -19,10 +28,11 @@ const Formulario = ({adicionar}) => {
     const usuario = user
     const numeroRadicado = radicationNumber
 
-    adicionar( {usuario, numeroRadicado})
+    adicionar( {usuario, numeroRadicado, mapaDato})
     
     //luego que lo adicione borra la información en los input del UI
     setUser('')
+    setRadNum('')
     
 }
 
@@ -59,26 +69,31 @@ const Formulario = ({adicionar}) => {
                     </div>
 
                     <div className="card-body">
-                            <div className="form-group input-group">
-                                <div className="input-group-prepend">
-                                    <span className="input-group-text">
-                                        <SolutionOutlined style={{ fontSize: '24px', color: '#08c' }}/>
-                                    </span>
-                                </div>
-                                <input
-                                    name=""
-                                    className="form-control"
-                                    placeholder="Num. radicado de salida"
-                                    type="number"
-                                    min="10000000"
-                                    max="10000000000"
-                                    value={radicationNumber}
-                                    onChange={(e) => {
-                                        setRadNum(e.target.value);
-                                    }}
-                                />
+                        <div className="form-group input-group">
+                            <div className="input-group-prepend">
+                                <span className="input-group-text">
+                                    <SolutionOutlined style={{ fontSize: '24px', color: '#08c' }}/>
+                                </span>
                             </div>
+                            <input
+                                name=""
+                                className="form-control"
+                                placeholder="Num. radicado de salida"
+                                type="number"
+                                min="10000000"
+                                max="10000000000"
+                                value={radicationNumber}
+                                onChange={(e) => {
+                                    setRadNum(e.target.value);
+                                }}
+                            />
                         </div>
+                    </div>
+
+                    <div className="card-body">
+                                <Mapa datosMapa = {infoMapa}                                        
+                                />
+                    </div>
                     
 
                     <div className="card-body">
