@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react' 
+import { UserOutlined, IdcardOutlined, MailOutlined, SelectOutlined, GlobalOutlined, SolutionOutlined} from '@ant-design/icons'
 
 const Formulario = ({adicionar}) => {
 
@@ -38,7 +39,9 @@ const Formulario = ({adicionar}) => {
                         
                         <div className="form-group input-group">
                             <div className="input-group-prepend">
-                               
+                            <span className="input-group-text">
+                                        <UserOutlined style={{ fontSize: '24px', color: '#08c' }}/>
+                                    </span>
                             </div>
                             <input
                                 name=""
