@@ -1,23 +1,25 @@
 import React from 'react'
 import { useState } from 'react' 
-import { UserOutlined} from '@ant-design/icons'
+import { UserOutlined, SolutionOutlined} from '@ant-design/icons'
 
 const Formulario = ({adicionar}) => {
 
   const [user, setUser] = useState("");
+  const [radicationNumber, setRadNum] = useState("");
 
   const paraAdicionar = (e) => {
     e.preventDefault()
     
-    if(!user )
+    if(!user || !radicationNumber)
     {
       alert('Por favor adicione la información en todos los campos')
       return
     }
 
     const usuario = user
+    const numeroRadicado = radicationNumber
 
-    adicionar( {usuario})
+    adicionar( {usuario, numeroRadicado})
     
     //luego que lo adicione borra la información en los input del UI
     setUser('')
@@ -56,8 +58,28 @@ const Formulario = ({adicionar}) => {
                         </div>
                     </div>
 
+                    <div className="card-body">
+                            <div className="form-group input-group">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text">
+                                        <SolutionOutlined style={{ fontSize: '24px', color: '#08c' }}/>
+                                    </span>
+                                </div>
+                                <input
+                                    name=""
+                                    className="form-control"
+                                    placeholder="Num. radicado de salida"
+                                    type="number"
+                                    min="10000000"
+                                    max="10000000000"
+                                    value={radicationNumber}
+                                    onChange={(e) => {
+                                        setRadNum(e.target.value);
+                                    }}
+                                />
+                            </div>
+                        </div>
                     
-
 
                     <div className="card-body">
                         
