@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react' 
-import { UserOutlined, IdcardOutlined, MailOutlined, SelectOutlined, GlobalOutlined, SolutionOutlined} from '@ant-design/icons'
+import { UserOutlined} from '@ant-design/icons'
 
 const Formulario = ({adicionar}) => {
 
