@@ -9,6 +9,7 @@ import L from "leaflet"
 
 delete L.Icon.Default.prototype._getIconUrl;
 
+
 L.Icon.Default.mergeOptions({
     iconRetinaUrl:
         "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-icon.png",
@@ -22,7 +23,7 @@ L.Icon.Default.mergeOptions({
 
 const Mapa = ( {datosMapa} ) => {
 
-    const [center,setCenter] = useState({lat:4.6573524 , lng:-74.1109368 })
+    const center={lat:4.6573524 , lng:-74.1109368 }
     const ZOOM_LEVEL = 15;
     const mapRef = useRef()
 
@@ -37,7 +38,7 @@ const Mapa = ( {datosMapa} ) => {
 
         if( layerType === "polygon" ) {
                 const {_leaflet_id} = layer;
-                const {_latlngs} = layer;
+                //const {_latlngs} = layer;
                 //console.log(_latlngs)
                 setMapLayers( layers => [ ...layers, {id: _leaflet_id, latlngs: layer.getLatLngs()[0]  } ] ) 
     
