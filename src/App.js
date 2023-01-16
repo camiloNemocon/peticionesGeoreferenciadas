@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Formulario from './pages/Formulario'
+import { BrowserRouter , Route, Routes } from 'react-router-dom' 
 
 
 function App() {
@@ -15,13 +16,17 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <Header/>
-        <img src={logo} className="App-logo" alt="logo" />
-        ahhhhhhhhhhhhhhhh
-        <Formulario adicionar={adicionarDatos}/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <div className="container">
+        <Header/>
+        <Routes>
+          <Route
+            path='/' element={<Formulario adicionar={adicionarDatos}/>} 
+          />   
+       </Routes>
+       <Footer/>
+      </div>
+     </BrowserRouter>
   );
 }
 
