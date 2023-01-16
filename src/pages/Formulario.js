@@ -4,23 +4,23 @@ import { UserOutlined} from '@ant-design/icons'
 
 const Formulario = ({adicionar}) => {
 
-  const [name, setName] = useState("");
+  const [user, setUser] = useState("");
 
   const paraAdicionar = (e) => {
     e.preventDefault()
     
-    if(!name )
+    if(!user )
     {
       alert('Por favor adicione la información en todos los campos')
       return
     }
 
-    const nombre = name
+    const usuario = user
 
-    adicionar( {nombre})
+    adicionar( {usuario})
     
     //luego que lo adicione borra la información en los input del UI
-    setName('')
+    setUser('')
     
 }
 
@@ -46,11 +46,11 @@ const Formulario = ({adicionar}) => {
                             <input
                                 name=""
                                 className="form-control"
-                                placeholder="Nombre completo"
+                                placeholder="Usuario institucional"
                                 type="text"
-                                value={name}
+                                value={user}
                                 onChange={(e) => {
-                                    setName(e.target.value);
+                                    setUser(e.target.value);
                                 }}
                             />
                         </div>
